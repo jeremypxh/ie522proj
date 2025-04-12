@@ -10,7 +10,7 @@ from scm import get_stationary_distribution, simulate_AP, simulate_channel_dynam
 from scm import plot_state_distributions, compute_current_density
 
 # Define voltage ranges for different experiments
-voltages_fine = np.arange(-140, 21, 2)  # For detailed plots
+voltages_fine = np.arange(-140, 21, 2)
 voltages_coarse = np.arange(-140, 21, 10)  # For optimization/screening
 
 

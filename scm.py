@@ -1285,7 +1285,7 @@ def run_full_demonstration():
         'optimization_history': history,
         'refractory_periods': refractory_periods
     }
-    # np.savez('optimization_results.npz', **results) # Example save
+
 
     return results
 
