@@ -397,6 +397,8 @@ def plot_SSA_SSI_comparison(voltages, ssa_wt, ssi_wt, ssa_ko, ssi_ko, title_suff
     plt.ylim(-0.05, 1.05) # Standard probability range
 
 
+
+
 def simulate_AP(t_max=200, dt=0.1):
     """
     Simulate a simplified action potential waveform for demonstration
@@ -408,6 +410,7 @@ def simulate_AP(t_max=200, dt=0.1):
     V[:] = -80
 
     # Upstroke (stimulus applied implicitly before t=10ms)
+
     upstroke_start_t = 10
     upstroke_end_t = 15
     peak_v = 20
@@ -420,7 +423,7 @@ def simulate_AP(t_max=200, dt=0.1):
     # Plateau and repolarization
     plateau_end_t = 50
     repol_end_t = 150
-
+    plateau_end_t = upstroke_end_t  # no hold at peak
     plateau_end_idx = int(plateau_end_t / dt)
     repol_end_idx = int(repol_end_t / dt)
 
@@ -1294,13 +1297,13 @@ def run_full_demonstration():
 if __name__ == '__main__':
 
     # Option 1: Run the full demonstration including optimization
-    full_results = run_full_demonstration()
+    # full_results = run_full_demonstration()
 
     # # Option 2: Run only the basic WT vs KO comparison (comment out Option 1)
-    # print("--- Running Basic WT vs KO Comparison Only ---")
-    # p_WT = get_parameters_WT()
-    # p_KO = get_parameters_KO()
-    # voltages = np.arange(-140, 20 + 1, 2) # Fine range for plotting
+    print("--- Running Basic WT vs KO Comparison Only ---")
+    p_WT = get_parameters_WT()
+    p_KO = get_parameters_KO()
+    voltages = np.arange(-140, 20 + 1, 2) # Fine range for plotting
     #
     # # # SSA/SSI Comparison
     # ssa_wt, ssi_wt = compute_SSA_SSI(voltages, p_WT)
